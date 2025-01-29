@@ -21,30 +21,30 @@ public class FlappyBird extends JPanel  implements MouseListener{
 
 
     public FlappyBird() {
-         bird = new Rectangle(50,250,30,30);
-         pipes = new ArrayList<>();
-         random = new Random();
-         JFrame frame = new JFrame("FlappyBird");
-         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-         frame.setSize(800,600);
-         frame.add(this);
-         frame.setVisible(true);
+        bird = new Rectangle(50, 250, 30, 30);
+        pipes = new ArrayList<>();
+        random = new Random();
+        JFrame frame = new JFrame("FlappyBird");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(800, 600);
+        frame.add(this);
+        frame.setVisible(true);
 
-         addMouseListener(this);
+        addMouseListener(this);
 
-         Timer timer = new Timer(20, new ActionListener() {
-             public void actionPerformed(ActionEvent e){
-                 bird.y += velocity;
-                 velocity += GRAVITY;
+        Timer timer = new Timer(20, new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                bird.y += velocity;
+                velocity += GRAVITY;
 
-                 movePipes();
-                 spawnPipes();
-                 checkCollision();
-                 repaint();
-             }
-         });
-         timer.start();
-
+                movePipes();
+                SpawnPipes();
+                checkCollision();
+                repaint();
+            }
+        });
+        timer.start();
+    } //mo should add this to the slidedeck
          private void movePipes() {
              for (int i = 0; i < pipes.size();  i++){
                  Rectangle pipe = pipes.get(i);
@@ -86,7 +86,7 @@ public class FlappyBird extends JPanel  implements MouseListener{
         }
 
 
-    }
+
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
